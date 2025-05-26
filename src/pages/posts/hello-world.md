@@ -7,15 +7,9 @@ date: "2024-01-15"
 
 # Hello World
 
-<div class="margin-date">Jan 15, 2024</div>
+<div class="margin-date">Published on: 2025-05-26</div>
 
-I've been meaning to start writing more, so here's my new blog.
-
-I'll probably write about programming, things I'm learning, and projects I'm working on. Nothing too fancy - just a place to put thoughts down.
-
-The blog is built with [Astro](https://astro.build), which I'm enjoying so far. Simple and fast.
-
-Here's a quick Python snippet I was working with today:
+test python code
 
 ```python
 def fibonacci(n):
@@ -37,5 +31,3 @@ posts.forEach(post => {
   console.log(`${post.title} - ${post.date}`);
 });
 ```
-
-Nothing groundbreaking, but it's nice to have a place to share these little snippets. More posts coming soon! 

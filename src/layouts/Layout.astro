@@ -336,16 +336,12 @@ const { title, description = "Yang Yu's personal website" } = Astro.props;
   }
 
   .margin-date {
-    position: absolute;
-    right: 40px;
-    color: var(--color-primary);
+    display: block;
+    color: var(--color-text-muted);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: normal;
     font-style: italic;
-    background: rgba(217, 119, 6, 0.1);
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(217, 119, 6, 0.2);
+    margin: 10px 0 20px 0;
   }
 
   /* Large screens - make content wider but preserve background visibility */
@@ -400,10 +396,7 @@ const { title, description = "Yang Yu's personal website" } = Astro.props;
     }
 
     .margin-date {
-      position: static;
-      text-align: right;
-      margin-top: 10px;
-      display: inline-block;
+      margin: 10px 0 20px 0;
     }
   }
 
