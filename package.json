@@ -14,5 +14,8 @@
     "astro": "^5.7.10",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "shiki-transformer-copy-button": "^0.0.3"
   }
 }

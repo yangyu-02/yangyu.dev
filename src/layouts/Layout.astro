@@ -257,6 +257,84 @@ const { title, description = "Yang Yu's personal website" } = Astro.props;
     border-radius: 0;
   }
 
+  /* Copy button styles for shiki-transformer-copy-button */
+  pre:has(code) {
+    position: relative;
+  }
+
+  pre button.copy {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    height: 32px;
+    width: 32px;
+  }
+
+  pre button.copy:hover {
+    background: rgba(217, 119, 6, 0.1);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  pre button.copy:active {
+    transform: translateY(0);
+  }
+
+  pre button.copy.copied {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: #10b981;
+    color: #10b981;
+  }
+
+  pre button.copy span {
+    width: 16px;
+    height: 16px;
+    display: block;
+    background-color: currentColor;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+
+  pre button.copy .ready {
+    -webkit-mask-image: url(/icons/copy.svg);
+    mask-image: url(/icons/copy.svg);
+    display: block;
+  }
+
+  pre button.copy .success {
+    -webkit-mask-image: url(/icons/copy-success.svg);
+    mask-image: url(/icons/copy-success.svg);
+    display: none;
+  }
+
+  pre button.copy.copied .success {
+    display: block;
+  }
+
+  pre button.copy.copied .ready {
+    display: none;
+  }
+
   .margin-date {
     position: absolute;
     right: 40px;

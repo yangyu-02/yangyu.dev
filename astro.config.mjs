@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
+import { addCopyButton } from 'shiki-transformer-copy-button';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,6 +11,11 @@ export default defineConfig({
         light: 'github-light',
         dark: 'github-dark',
       },
+      transformers: [
+        addCopyButton({
+          toggle: 1000, // Time in ms to show "Copied!" before reverting
+        }),
+      ],
     },
   },
 });

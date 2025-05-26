@@ -3925,6 +3925,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"shiki-transformer-copy-button@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "shiki-transformer-copy-button@npm:0.0.3"
+  dependencies:
+    hastscript: "npm:^9.0.0"
+  checksum: 10c0/532f3845a2d906d93affc69f7324566772bb5d794a5b49a765b742b3c75d5a64361e2bc6b453e04978a8412572b4f1664524f6dc90cf5d7010da5ba27600212b
+  languageName: node
+  linkType: hard
+
 "shiki@npm:^3.0.0, shiki@npm:^3.2.1":
   version: 3.3.0
   resolution: "shiki@npm:3.3.0"
@@ -4688,6 +4697,7 @@ __metadata:
     astro: "npm:^5.7.10"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
+    shiki-transformer-copy-button: "npm:^0.0.3"
   languageName: unknown
   linkType: soft
 
