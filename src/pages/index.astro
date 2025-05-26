@@ -1,19 +1,20 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component frontmatter". It never runs in the browser.
-console.log('This runs in your terminal, not the browser!');
+import Layout from '../layouts/Layout.astro';
 ---
-<!-- Below is your "component template." It's just HTML, but with
-    some magic sprinkled in to help you build great templates. -->
-<html>
-  <body>
-    <h1>Hello, yang!</h1>
-    <p>Current time: {new Date().toLocaleTimeString()}</p>
-    <p>time</p>
-  </body>
-</html>
-<style>
-  h1 {
-    color: orange;
-  }
-</style>
+
+<Layout title="Yang Yu" description="Yang Yu's personal website">
+  <h1>Yang Yu</h1>
+  
+  <p>
+    I'm a developer who likes building things and writing about what I learn.
+  </p>
+  
+  <p>
+    This is my corner of the internet where I share thoughts on programming, 
+    projects I'm working on, and other things I find interesting.
+  </p>
+  
+  <p>
+    You can read my <a href="/posts">posts</a> or check out my <a href="/projects">projects</a>.
+  </p>
+</Layout>

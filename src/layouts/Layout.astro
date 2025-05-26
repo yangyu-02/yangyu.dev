@@ -1,0 +1,159 @@
+---
+import Header from "../components/Header.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Yang Yu's personal website" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="container">
+      <Header />
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-primary: #d97706; /* warm orange */
+    --color-secondary: #fffbf5; /* warm cream */
+    --color-text: #333;
+    --color-background: #fffbf5;
+    --color-text-muted: #666;
+    --color-link: #1e40af; /* complementary blue */
+    --color-link-hover: #1e3a8a; /* darker blue */
+  }
+
+  body {
+    font-family: Georgia, serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background: var(--color-background);
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 80px 0 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 30px 0 20px 0;
+    font-weight: normal;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin: 25px 0 15px 0;
+    font-weight: normal;
+  }
+
+  h3 {
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+    font-weight: normal;
+  }
+
+  p {
+    margin: 0 0 15px 0;
+  }
+
+  a {
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
+  }
+
+  ul,
+  ol {
+    margin: 0 0 15px 0;
+    padding-left: 30px;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  blockquote {
+    margin: 20px 0;
+    padding-left: 20px;
+    border-left: 3px solid var(--color-text-muted);
+    color: var(--color-text-muted);
+  }
+
+  code {
+    color: var(--color-primary);
+    padding: 2px 6px;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+
+  pre,
+  .astro-code {
+    background: rgba(217, 119, 6, 0.05) !important;
+    border: 1px solid rgba(217, 119, 6, 0.15);
+    border-left: 3px solid var(--color-primary);
+    padding: 16px;
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 4px;
+  }
+
+  pre code,
+  .astro-code code {
+    background: none !important;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .margin-date {
+    position: absolute;
+    right: 20px;
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  @media (max-width: 800px) {
+    .container {
+      padding: 0 20px;
+    }
+
+    .margin-date {
+      position: static;
+      text-align: right;
+      margin-top: 10px;
+      display: block;
+    }
+  }
+</style>
