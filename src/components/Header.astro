@@ -1,56 +1,117 @@
 ---
-// Simple header
+// Simple header component that provides site navigation
+// Displays the site title/logo and main navigation links
+// Design theme: Cool (left) to warm/bright (right) linear transitions
 ---
 
 <header>
-  <a href="/" class="home-link">Yang's blog</a>
-  <nav>
-    <a href="/posts">Posts</a>
-    <a href="/projects">Projects</a>
-  </nav>
+  <div class="header-content">
+    <!-- Site title/logo that links back to homepage -->
+    <a href="/" class="home-link">Yang's blog</a>
+
+    <!-- Main navigation menu -->
+    <nav>
+      <a href="/posts">Posts</a>
+      <a href="/projects">Projects</a>
+    </nav>
+  </div>
 </header>
 
 <style>
+  /* Main header container with normal background */
   header {
-    padding: 20px 0;
+    padding: 0 0 30px 0;
     margin-bottom: 40px;
-    border-bottom: 3px solid var(--color-text);
+    position: relative;
   }
 
+  /* Decorative border at bottom of header */
+  header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 2px;
+  }
+
+  /* Flexbox container for header content - title on left, nav on right */
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+  }
+
+  /* Site title/logo styling */
   .home-link {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    margin-right: 30px;
     color: var(--color-text);
-    background: none;
-    padding: 0;
+    position: relative;
   }
 
+  /* Animated underline effect */
+  .home-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+  }
+
+  /* Expand underline on hover */
+  .home-link:hover::after {
+    width: 100%;
+  }
+
+  /* Navigation container with horizontal layout */
   nav {
-    display: inline;
+    display: flex;
+    gap: 25px;
   }
 
+  /* Individual navigation link styling */
   nav a {
     text-decoration: none;
     color: var(--color-text);
-    margin-right: 20px;
     font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.1s ease;
+    position: relative;
   }
 
+  /* Hover effects for navigation links */
   nav a:hover {
-    color: var(--color-text);
+    color: var(--color-primary);
+    background: rgba(217, 119, 6, 0.1);
+    transform: translateY(-1px);
   }
 
+  /* Mobile responsive design - stack elements vertically on small screens */
   @media (max-width: 600px) {
-    header {
-      text-align: center;
+    .header-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
     }
 
-    .home-link {
-      display: block;
-      margin-bottom: 10px;
-      margin-right: 0;
+    /* Reduce spacing between nav items on mobile */
+    nav {
+      gap: 15px;
+    }
+
+    /* Smaller nav links on mobile */
+    nav a {
+      padding: 6px 12px;
+      font-size: 14px;
     }
   }
 </style>
