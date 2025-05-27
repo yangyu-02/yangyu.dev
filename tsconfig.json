@@ -1,12 +1,23 @@
 {
-  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
       }
-    ]
-  }
+    ],
+  },
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
 }

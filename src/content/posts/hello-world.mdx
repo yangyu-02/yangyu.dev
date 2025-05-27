@@ -1,13 +1,11 @@
 ---
-layout: ../../layouts/Layout.astro
 title: "Hello World"
 description: "First post on my new blog"
 date: "2024-01-15"
 ---
 
-# Hello World
+import Quote from '../../components/Quote.astro';
 
-<div class="margin-date">Published on: 2025-05-26</div>
 
 test python code
 
@@ -31,3 +29,17 @@ posts.forEach(post => {
   console.log(`${post.title} - ${post.date}`);
 });
 ```
+
+Here's an example of the new quote component:
+
+<Quote author="Albert Einstein">
+The important thing is not to stop questioning. Curiosity has its own reason for existing.
+</Quote>
+
+<Quote author="Maya Angelou" source="I Know Why the Caged Bird Sings">
+There is no greater agony than bearing an untold story inside you.
+</Quote>
+
+<Quote>
+Sometimes the most profound quotes don't need attribution.
+</Quote>
