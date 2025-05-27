@@ -4,7 +4,6 @@ description: "First post on my new blog"
 date: "2024-01-15"
 ---
 
-import Quote from '../../components/Quote.astro';
 
 
 test python code
@@ -32,14 +31,11 @@ posts.forEach(post => {
 
 Here's an example of the new quote component:
 
-<Quote author="Albert Einstein">
-The important thing is not to stop questioning. Curiosity has its own reason for existing.
-</Quote>
 
-<Quote author="Maya Angelou" source="I Know Why the Caged Bird Sings">
-There is no greater agony than bearing an untold story inside you.
-</Quote>
+Here's how a native blockquote looks:
 
-<Quote>
-Sometimes the most profound quotes don't need attribution.
-</Quote>
+> This is a native blockquote using standard Markdown syntax. It uses the default styling defined in the Layout.astro file with the orange left border and subtle background tint.
+
+> You can also have multi-paragraph blockquotes.
+> 
+> Like this second paragraph, which continues the same blockquote block.
