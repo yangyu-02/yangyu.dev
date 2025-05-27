@@ -1,154 +1,53 @@
-# Yang Yu's Personal Website - Cursor Rules
+# Yang Yu's Dev Blog - Cursor Rules
 
 ## Project Overview
-This is an Astro-based personal website with React integration. The project emphasizes minimalism, clean design, and thoughtful typography.
+This is an Astro-based personal dev blog with minimalist design. Keep the same format and patterns established in the codebase.
 
 ## Core Principles
-- **Minimalism First**: Keep code, components, and features minimal and purposeful
-- **Consistency**: Follow existing patterns and conventions established in the codebase
-- **Readability**: Prioritize clear, self-documenting code over clever solutions
-- **Performance**: Leverage Astro's static generation and minimal JavaScript approach
+- **Maintain existing format**: Follow the established blog post structure and design patterns
+- **Minimalism**: Keep code and features simple and purposeful
+- **Consistency**: Use existing patterns in components and layouts
 
-## Code Style & Formatting
+## Blog Post Format
 
-### General Style (see `.editorconfig`)
-- Use 2 spaces for indentation (never tabs)
-- UTF-8 encoding
-- LF line endings
-- Always include final newline
-- Follow existing patterns in `src/components/Header.astro` and `src/layouts/Layout.astro`
-
-### File Organization
-- Components: `src/components/` (use PascalCase, e.g., `Header.astro`)
-- Layouts: `src/layouts/` (use PascalCase, e.g., `Layout.astro`)
-- Pages: `src/pages/` (follow Astro routing conventions)
-- Styles: Prefer component-scoped styles over global CSS
-
-### Astro Component Conventions
-- Use frontmatter for component logic and imports
-- Include descriptive comments explaining component purpose
-- Follow the pattern: frontmatter → template → scoped styles
-- Example structure from existing components:
-  ```astro
+### Content Structure
+- Blog posts go in `src/content/posts/` as `.mdx` files
+- Use the established frontmatter format:
+  ```yaml
   ---
-  // Component description and purpose
-  // Any TypeScript interfaces or logic
+  title: "Post Title"
+  description: "Brief description"
+  date: "YYYY-MM-DD"
+  slug: "/custom-slug" (optional)
   ---
-  
-  <!-- HTML template with semantic structure -->
-  
-  <style>
-    /* Component-scoped styles with clear comments */
-  </style>
   ```
 
-## Design System & Styling
+### Code Style
+- Use 2 spaces for indentation (never tabs)
+- Follow existing patterns in `src/layouts/Layout.astro` and `src/pages/posts/[id].astro`
+- Keep the established color scheme and typography
 
-### CSS Variables (defined in `src/layouts/Layout.astro`)
-Use the established CSS custom properties:
-- `--color-primary`: #d97706 (warm orange)
-- `--color-secondary`: #fffbf5 (warm cream)
-- `--color-text`: #333
-- `--color-background`: #f8f9fa
-- `--color-content-bg`: #fffbf5
-- `--color-text-muted`: #666
-- `--color-link`: #1e40af (complementary blue)
-- `--color-accent`: #f97316 (brighter orange)
+## Design System
+- **Colors**: Warm orange primary (#d97706), cool blue links (#1e40af)
+- **Typography**: Georgia serif for body text
+- **Layout**: Max-width 750px content area with established padding
+- **Code blocks**: Use existing Shiki configuration with copy buttons
 
-### Design Theme
-- **Color Flow**: Cool (left/blue) to warm (right/orange) transitions
-- **Typography**: Georgia serif for body text, clean hierarchy
-- **Spacing**: Consistent padding/margins following existing patterns
-- **Animations**: Subtle hover effects and transitions (0.1s-0.3s ease)
-
-### Component Patterns
-- Use semantic HTML elements
-- Include hover states with subtle transforms
-- Mobile-first responsive design with `@media (max-width: 600px)`
-- Consistent border-radius: 8px for containers, 20px for buttons/links
-
-## Technology Stack
-- **Framework**: Astro 5.7+ with React integration
-- **Package Manager**: Yarn 4.9+ (see `.yarnrc.yml`)
-- **TypeScript**: Enabled (see `tsconfig.json`)
-- **Node Version**: Specified in `.nvmrc`
-- **Code Highlighting**: Shiki with `shiki-transformer-copy-button` for copy functionality
-
-## Development Guidelines
-
-### Component Creation
-- Start with the simplest possible implementation
-- Add TypeScript interfaces for props when needed
-- Include accessibility considerations (semantic HTML, ARIA when needed)
-- Follow the established comment style for explaining component purpose
-
-### Styling Approach
-- Prefer component-scoped styles over global CSS
-- Use CSS custom properties for consistent theming
-- Follow the established naming conventions for classes
-- Include responsive design considerations
-
-### Code Comments
-- Explain the "why" not the "what"
-- Include component purpose in frontmatter
-- Document complex CSS effects or animations
-- Keep comments concise but informative
-
-## File Naming & Structure
-- Use PascalCase for components: `Header.astro`, `Footer.astro`
-- Use kebab-case for pages following Astro conventions
-- Keep directory structure flat and organized
-- Group related functionality together
-
-## Performance Considerations
-- Leverage Astro's static generation by default
-- Use React components only when interactivity is needed
-- Minimize JavaScript bundle size
-- Optimize images and assets
+## File Organization
+- Components: `src/components/` (PascalCase)
+- Layouts: `src/layouts/` (PascalCase) 
+- Pages: `src/pages/` (follow Astro conventions)
+- Blog posts: `src/content/posts/` (kebab-case.mdx)
 
 ## When Making Changes
 1. Follow existing patterns before creating new ones
-2. Test responsive design on mobile breakpoints
-3. Ensure accessibility standards are maintained
-4. Keep the minimal aesthetic and clean design
-5. Verify color scheme consistency with the cool-to-warm theme
+2. Keep the minimal aesthetic and clean design
+3. Maintain the established blog post format and routing
+4. Use component-scoped styles over global CSS
+5. Test responsive design on mobile breakpoints
 
-## Dependencies
-- Prefer minimal, well-maintained packages
-- Use Astro's built-in features before adding external libraries
-- Keep the dependency tree lean and purposeful
-
-## Code Block Copy Functionality
-
-### Implementation Pattern
-- Use Shiki transformers for build-time copy button generation (preferred over DOM manipulation)
-- Copy buttons are added via `shiki-transformer-copy-button` in `astro.config.mjs`
-- SVG icons stored in `/public/icons/` directory for copy states
-
-### Copy Button Styling (in `src/layouts/Layout.astro`)
-- Transparent background with orange border (`var(--color-primary)`)
-- 32x32px button size positioned top-right of code blocks
-- CSS mask properties for SVG icon color inheritance
-- Hover states with subtle background tints and transforms
-- Success state with green colors and icon swap
-- Icons: `/public/icons/copy.svg` (ready) and `/public/icons/copy-success.svg` (copied)
-
-### Configuration
-```js
-export default defineConfig({
-  integrations: [react()],
-  markdown: {
-    shikiConfig: {
-      themes: {
-        light: 'github-light',
-        dark: 'github-dark',
-      },
-      transformers: [
-        addCopyButton({
-          toggle: 1000, // Time in ms to show "Copied!" before reverting
-        }),
-      ],
-    },
-  },
-});
-``` 
+## Technology Stack
+- **Framework**: Astro with React integration
+- **Package Manager**: Yarn
+- **Content**: MDX files in content collections
+- **Styling**: Component-scoped CSS with CSS custom properties 
